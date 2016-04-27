@@ -68,6 +68,9 @@ then
   echo "Checking cbc...        ok"
 else
   echo "Problem with cbc: $CBC"
+  echo "If you need to install cbc, you can do it like so:"
+  echo "   wget http://packages.couchbase.com/clients/c/couchbase-csdk-setup"
+  echo "   sudo perl couchbase-csdk-setup"
   exit 1
 fi
 #
