@@ -32,6 +32,28 @@ ERRORLOG=$TEMPDIR/rrr-errors.log
 #
 # Announce myself
 echo "This is $0 running at `date` on `hostname`"
+echo "I will attempt to raise the resident ratio of bucket: $BUCKETNAME"
+#
+read -p "Do you want to continue? [y/N]"
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then 
+  echo "Stopping."
+  exit 1
+fi
+#
+echo "My temp directory is $TEMPDIR"
+#
+read -p "OK to clear out this directory? [y/N]"
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then 
+  echo "Stopping."
+  exit 1
+fi
+#
+echo "Removing $TEMPDIR"
+rm -rf $TEMPDIR
+echo "Creating $TEMPDIR"
+mkdir $TEMPDIR
 #
 # Check to see if the executables exist
 if [[ -x "$DBDUMP" ]]
@@ -77,6 +99,14 @@ else
 fi
 #
 # --- All prerequisites met - proceed ---
+echo "About to make a list of keys"
+#
+read -p "OK to continue? [y/N]"
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then 
+  echo "Stopping."
+  exit 1
+fi
 #
 # Step 1.  Make a list of the keys
 VBCOUNTER=0
@@ -125,6 +155,17 @@ else
   echo "Problem with the grep"
   exit 1
 fi 
+#
+# END OF THE STEP TO MAKE A LIST OF THE KEYS
+#
+echo "About to attempt a get() for each key"
+#
+read -p "OK to continue? [y/N]"
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then 
+  echo "Stopping."
+  exit 1
+fi
 #
 # Step 2.  Get each key
 GETCOUNTER=0
