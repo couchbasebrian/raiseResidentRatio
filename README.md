@@ -1,6 +1,14 @@
 # raiseResidentRatio
 A script to raise the resident ratio
 
+How to use:
+
+    sudo yum install git
+    git clone https://github.com/couchbasebrian/raiseResidentRatio.git
+    cd raiseResidentRatio
+    vi raiseResidentRatio.sh
+    sudo ./raiseResidentRatio.sh
+
 Sample output
 
     $ sudo ./raiseResidentRatio.sh 
