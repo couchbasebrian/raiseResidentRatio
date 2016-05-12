@@ -6,7 +6,7 @@ How to use:
     sudo yum install git
     git clone https://github.com/couchbasebrian/raiseResidentRatio.git
     cd raiseResidentRatio
-    vi raiseResidentRatio.sh
+    vi raiseResidentRatio.sh // edit the name of the bucket, by default it is "default"
     sudo ./raiseResidentRatio.sh
 
 Sample output
