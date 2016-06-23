@@ -173,6 +173,7 @@ fi
 # Step 2.  Get each key
 GETCOUNTER=0
 GETERRCOUNTER=0
+STEP=1000
 if [ -r $TEMPDIR/trimmed-ids.txt ]
 then
   for eachKey in `cat $TEMPDIR/trimmed-ids.txt` 
@@ -187,6 +188,10 @@ then
       GETERRCOUNTER=$((ERRCOUNTER+1))
     fi 
     GETCOUNTER=$((GETCOUNTER+1))
+    if [ 0 -eq $((GETCOUNTER%STEP)) ]
+    then
+       echo "I have done $GETCOUNTER gets"
+    fi
   done
   echo "I attempted $GETCOUNTER gets and there were $GETERRCOUNTER errors."
 else
