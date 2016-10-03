@@ -1,6 +1,8 @@
 # raiseResidentRatio
 A script to raise the resident ratio
 
+Note: This script does its work by looking at the vBuckets on the node that it is run from.  In other words if you want to get all keys, then you have to run the script on each node of the cluster.  You should be able to do them in parallel.
+
 How to use:
 
     sudo yum install git
